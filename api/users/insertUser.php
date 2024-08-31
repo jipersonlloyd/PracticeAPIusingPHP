@@ -2,7 +2,7 @@
 
 include_once("../header.php");
 include_once("../db.php");
-include_once("../model/users.php");
+include_once("../../model/users.php");
 
 $database = new Database();
 

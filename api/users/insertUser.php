@@ -22,7 +22,7 @@ if ($user->isUserExist()) {
     if ($user->create()) {
         echo json_encode([
             "result" => true,
-            "message" => "User was created.",
+            "message" => "Account created successfully",
         ]);
     } else {
         echo json_encode(["message" => "Unable to create user."]);

@@ -34,4 +34,14 @@ class Users{
         $stmt->execute();
         return $stmt;
     }
+
+    public function isUserExist() {
+        $query = "SELECT * FROM " . $this->table . " WHERE username = " . "'$this->username'";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        if($stmt->rowCount() > 0) {
+            return true;
+        }
+        return false;
+    }
 }

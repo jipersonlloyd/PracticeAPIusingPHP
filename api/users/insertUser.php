@@ -13,11 +13,18 @@ $user->username = $data->username;
 $user->email = $data->email;
 $user->password = $data->pass;
 
-if ($user->create()) {
+if ($user->isUserExist()) {
     echo json_encode([
         "result" => true,
-        "message" => "User was created.",
+        "message" => "Account already exist",
     ]);
 } else {
-    echo json_encode(["message" => "Unable to create user."]);
+    if ($user->create()) {
+        echo json_encode([
+            "result" => true,
+            "message" => "User was created.",
+        ]);
+    } else {
+        echo json_encode(["message" => "Unable to create user."]);
+    }
 }

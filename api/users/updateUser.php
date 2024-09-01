@@ -17,7 +17,7 @@ $user->password = $data->pass;
 
 $method = $_SERVER['REQUEST_METHOD'];
 
-if ($method == 'PATCH') {
+if ($method == 'PUT') {
     if ($user->update()) {
         echo json_encode([
             "result" => true,

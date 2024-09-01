@@ -21,4 +21,11 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     array_push($users_arr, $user_item);
 }
 
-echo json_encode($users_arr);
+$method = $_SERVER["REQUEST_METHOD"];
+
+if($method == 'GET') {
+    echo json_encode($users_arr);
+}
+else {
+    http_response_code(404);
+}
